@@ -1,0 +1,135 @@
+" Use ~/.vim/vimrc if exists
+"if filereadable(expand("~/.vim/vimrc"))
+"    source ~/.vim/vimrc
+"endif
+
+
+let mapleader=" "
+
+set nocompatible
+syntax on
+filetype on
+filetype plugin on
+filetype indent on
+filetype plugin indent on
+
+"Adjust the terminal color
+let &t_ut=''
+
+set encoding=utf-8
+
+set number
+set relativenumber
+set cursorline
+
+set ruler
+set showmode
+set showcmd
+set autoindent
+set smartindent
+set smarttab
+set expandtab
+set shiftwidth=4
+set tabstop=4
+set softtabstop=4
+"set list  
+
+set scrolloff=5
+
+set laststatus=2
+set autochdir
+
+set wrap
+set backspace=indent,eol,start
+
+set wildmenu
+set hlsearch
+set incsearch
+exec "nohlsearch"
+set ignorecase
+set smartcase
+
+
+
+"Setting the theme for vim
+"colorscheme murphy 
+"colorscheme pablo
+"colorscheme ron
+colorscheme slate
+"colorscheme snazzy
+"let g:SnazzyTransparent = 1
+"Rmap the key. 
+
+hi CursorLine term=bold cterm=bold ctermbg=Magenta
+
+map s <nop>
+map S :w<CR>
+map Q :q<CR>
+map R :source $MYVIMRC<CR>
+
+map sr :set splitright<CR>:vsplit<CR>
+map sl :set nosplitright<CR>:vsplit<CR>
+map su :set nosplitbelow<CR>:split<CR>
+map sd :set splitbelow<CR>:split<CR>
+map sv <C-w>t<C-w>H
+map sh <C-w>t<C-w>K
+
+"map <up> :res +5<CR>
+"map <down> :res -5<CR>
+"map <left> :vertival resize-5<CR>
+"map <right> :vertival resize+5<CR>
+
+
+map <LEADER>l <C-w>l
+map <LEADER>k <C-w>k
+map <LEADER>h <C-w>h
+map <LEADER>j <C-w>j
+
+map tu :tabe<CR>
+map tn :-tabnext<CR>
+map tp :+tabnext<CR>
+
+noremap J 5j
+noremap K 5k
+noremap = nzz
+noremap - Nzz
+noremap <LEADER><CR> :nohlsearch<CR>
+
+noremap <Up> <Nop>
+noremap <Down> <Nop>
+noremap <Left> <Nop>
+noremap <Right> <Nop>
+
+"<<<<<NerdTree Config
+map tt :NERDTreeToggle<CR>
+
+">>>>>NerdTree Config
+
+"<<<<<You Complete ME Config
+
+">>>>>You Complete ME Config
+
+
+"<<<<<ale config
+let b:ale_linters = ['pylint']
+let b:ale_fixers = ['autopep8', 'yapf']
+">>>>>ale config
+
+"<<<<<Goyo
+map <LEADER>gy :Goyo<CR>
+">>>>>Goyo
+
+
+
+"Plug
+call plug#begin('~/.vim/plugged')
+
+Plug 'vim-airline/vim-airline'
+Plug 'connorholyday/vim-snazzy'
+Plug 'preservim/nerdtree'
+"Plug 'ycm-core/YouCompleteMe'
+Plug 'dense-analysis/ale'
+Plug 'junegunn/goyo.vim'
+
+call plug#end()
+
