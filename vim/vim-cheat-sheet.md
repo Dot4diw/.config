@@ -2,7 +2,9 @@
 
 # [Vim Cheat Sheet](https://vim.rtorr.com/)
 
-## Global
+## Checkout the source on [Github](https://github.com/rtorr/vim-cheat-sheet)
+
+## Global 
 
 - :h[elp] keyword - open help for keyword
 - :sav[eas] file - save file as
