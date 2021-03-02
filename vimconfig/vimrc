@@ -22,6 +22,8 @@ set number
 set relativenumber
 set cursorline
 
+"set spell
+
 set ruler
 set showmode
 set showcmd
@@ -60,7 +62,7 @@ colorscheme slate
 "let g:SnazzyTransparent = 1
 "Rmap the key. 
 
-hi CursorLine term=bold cterm=bold ctermbg=Magenta
+hi CursorLine term=bold cterm=bold ctermbg=234
 
 map s <nop>
 map S :w<CR>
@@ -105,9 +107,16 @@ map tt :NERDTreeToggle<CR>
 
 ">>>>>NerdTree Config
 
-"<<<<<You Complete ME Config
-
-">>>>>You Complete ME Config
+"<<<<<YouCompleteME Config
+let g:ycm_global_ycm_extra_conf = "~/.vim/bundle/YouCompleteMe/cpp/ycm/.ycm_extra_conf.py"
+let g:ycm_key_invoke_completion = ''
+let g:ycm_min_num_identifier_candidate_chars = 2
+let g:ycm_goto_buffer_command = 'horizontal-split'
+let g:ycm_seed_identifiers_with_syntax=1
+map <F2> :YcmCompleter GoTo<CR>
+let g:ycm_error_symbol = '>>'
+let g:ycm_warning_symbol = '>*'
+">>>>>YouCompleteME Config
 
 
 "<<<<<ale config
@@ -119,17 +128,64 @@ let b:ale_fixers = ['autopep8', 'yapf']
 map <LEADER>gy :Goyo<CR>
 ">>>>>Goyo
 
+"<<<<<indentLine config
+let g:indentLine_char='¦'
+let g:indentLine_enabled = 1
+let g:indentLine_color_term = 239
+"let g:indentLine_bgcolor_term = 202
+"let g:indentLine_bgcolor_gui = '#FF5F00'
+"let g:indentLine_setConceal = 0
+"let g:indentLine_setColors = 0
+let g:indentLine_defaultGroup = 'SpecialKey'
+">>>>>indentLine config
+
+"<<<<<vim-autoformat config
+" Push the F6 button to auto format.
+nnoremap <F6> :Autoformat<CR> " Push the F6 button to auto format.
+let g:autoformat_autoindent = 0
+let g:autoformat_retab = 0
+let g:autoformat_remove_triling_soace = 0
+">>>>>vim-autoformat config
 
 
-"Plug
+"<<<<<vim-rainbow config
+let g:rainbow_active = 1 "0 if you want to enable it later via :RainbowToggle
+"let g:rainbow_conf = {
+"    \   'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick'],
+"    \   'ctermfgs': ['lightblue', 'lightyellow', 'lightcyan', 'lightmagenta'],
+"    \   'operators': '_,_',
+"    \   'parentheses': ['start=/(/ end=/)/ fold', 'start=/\[/ end=/\]/ fold', 'start=/{/ end=/}/ fold'],
+"    \   'separately': {
+"    \       '*': {},
+"    \       'tex': {
+"    \           'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/'],
+"    \       },
+"    \       'lisp': {
+"    \           'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick', 'darkorchid3'],
+"    \       },
+"    \       'vim': {
+"    \           'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/', 'start=/{/ end=/}/ fold', 'start=/(/ end=/)/ containedin=vimFuncBody', 'start=/\[/ end=/\]/ containedin=vimFuncBody', 'start=/{/ end=/}/ fold containedin=vimFuncBody'],
+"    \       },
+"    \       'html': {
+"    \           'parentheses': ['start=/\v\<((area|base|br|col|embed|hr|img|input|keygen|link|menuitem|meta|param|source|track|wbr)[ >])@!\z([-_:a-zA-Z0-9]+)(\s+[-_:a-zA-Z0-9]+(\=("[^"]*"|'."'".'[^'."'".']*'."'".'|[^ '."'".'"><=`]*))?)*\>/ end=#</\z1># fold'],
+"    \       },
+"    \       'css': 0,
+"    \   }
+"    \}
+">>>>>vim-rainbow config
+
+"Plug Install List
 call plug#begin('~/.vim/plugged')
 
 Plug 'vim-airline/vim-airline'
 Plug 'connorholyday/vim-snazzy'
 Plug 'preservim/nerdtree'
-"Plug 'ycm-core/YouCompleteMe'
+Plug 'ycm-core/YouCompleteMe'
 Plug 'dense-analysis/ale'
 Plug 'junegunn/goyo.vim'
+Plug 'Yggdroot/indentLine'
+Plug 'Chiel92/vim-autoformat'
+Plug 'luochen1990/rainbow'
 
 call plug#end()
 
